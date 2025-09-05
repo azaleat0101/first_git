@@ -1,2 +1,1 @@
-# first_git
-first project with git 
+# My first project
