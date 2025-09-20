@@ -6,24 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - New Web Page</title>
     <meta name="description" content="Get in touch with us.">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
 </head>
 
 <body>
     <header>
-        <a href="/">Name of the Company</a>
+        <a href="index.html">Name of the Company</a>
         <nav>
             <ul>
                 <li><a href="index.html">Main</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <nav aria-label="Breadcrumb">
+            <a href="index.html">Main</a> →
+            <span>Contacts</span>
+        </nav>
+        
         <h1>Contact Us</h1>
         <p>If you have any questions or inquiries, please feel free to reach out to us!</p>
+
+        <button id="openDialog">To dialog</button>
+
+        <dialog id="contactDialog" aria-labelledby="dialogTitle">
+            <h2>Contact Form</h2>
+
+            <form id="contactForm" method="dialog" novalidate>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required minlength="2" autocomplete="given-name">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required autocomplete="email">
+                
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" inputmode="tel" autocomplete="tel" aria-describedby="phoneHelp" placeholder="+7 (___) ___-____" required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
+                <small id="phoneHelp">Format: +7 (900) 000-00-00</small>
+
+                <label for="date">Date:</label>
+                <input id="date" name="date" type="date">
+
+                <label for="topic">Subject:</label>
+                <select id="topic" name="topic" required>
+                    <option value="" disabled selected>Select a topic</option>
+                    <option value="support">Support</option>
+                    <option value="to_buy">To buy</option>
+                    <option value="other">Other</option>
+                </select>   
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <div class="form-actions">
+                    <button type="submit">Submit</button>
+                    <button type="button" id="closeDialog">Close</button>
+                </div>
+            </form>
+        </dialog>
 
         <section>
             <h2>Get in Touch</h2>
